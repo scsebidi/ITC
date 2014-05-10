@@ -1,0 +1,26 @@
+<h3>Books</h3>
+<table>
+	<tr><th>Id</th>
+		<th>Name</th>
+		<th>Author</th>
+		<th>Genre</th>
+		<th>Price</th>
+		<th>Created At</th>
+		<th>Charts At</th>
+	</tr>
+	<tr>
+     <% @books.each do |v|%>
+         <td><%= v.id%></td>
+         <td><%= v.name%></td>
+         <td><%= link_to v.author_id, authors_path %></td>  
+          <td><%= link_to v.genre_id, genres_path %></td>
+          <td><%= number_to_currency v.price, :unit=> "R"%></td>
+         <td><%= v.created_at%></td>
+         <td>
+           <%= button_to "Add Cats", items_path, :id =>v ,:method=> :get%>
+      </td>
+      <tr><td colspan="7"><hr/></td></tr>
+      <h>
+</tr>
+<%end%>
+</table>
